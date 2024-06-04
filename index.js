@@ -16,9 +16,9 @@ app.use('/api', authRoutes);
 app.use('/api', blogRoutes);
 app.use('/api', userRoutes);
 
-app.get('/', async (req, res) => {
-    res.send('Welcome to my-block-app server')
-})
+app.get('/', (req, res) => {
+    res.send('Welcome to my-blog-app server');
+});
 
 const PORT = process.env.PORT || 5000;
 
