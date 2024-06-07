@@ -1,27 +1,30 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const mongoose = require('mongoose');
 
-const Blog = sequelize.define('Blog', {
+// Define the Mongoose schema for the Blog model
+const blogSchema = new mongoose.Schema({
     title: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: String,
+        required: true,
     },
     content: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+        type: String,
+        required: true,
     },
     publicationDate: {
-        type: DataTypes.DATE,
-        allowNull: false,
+        type: Date,
+
     },
     writer: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: String,
+
     },
     email: {
-        type: DataTypes.STRING,
-        allowNull: false,
+        type: String,
+
     },
 });
+
+const Blog = mongoose.model('Blog', blogSchema);
+
 
 module.exports = Blog;
